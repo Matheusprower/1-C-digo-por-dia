@@ -1,0 +1,21 @@
+programa {
+
+  inclua biblioteca Util
+
+  funcao inicio() {
+    inteiro c = 1
+    enquanto(c<=100){
+      escreva("Verde")
+      Util.aguarde(1000)
+      escreva("\nAmarelo")
+      Util.aguarde(1000)
+      escreva("\nVermelho")
+      Util.aguarde(1000)
+      limpa()
+    }
+escreva("\nErro")
+  }
+}
+
+/ Quis criar um semáforo no portugol, o objetivo é que o código sempre estivesse ativo, então se ocorrer algo que faça ele desativar dá esse erro. A forma como eu consegui foi criando uma variável e colocando o programa para que ele ficasse lendo até que c fosse 
+maior que 100 (o que nunca vai acontecer normalmente, já que o código não aumenta o valor de c).
