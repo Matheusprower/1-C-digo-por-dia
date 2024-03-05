@@ -1,0 +1,48 @@
+programa {
+  funcao inicio() {
+    real on, n1, n2, rs
+    inteiro op, on
+    //
+    on = 0
+    enquanto(on==0){
+      escreva("Digite o primeiro número:\n")
+      leia(n1)
+      escreva("Selecione a operação:\n\n 1-Soma\n 2-Subtração\n 3-Multiplicação\n 4-Divisão\n")
+      leia(op)
+      escreva("Digite o segundo número:\n")
+      leia(n2)
+
+      se(op==1)
+      escreva("Resultado: ", n1+n2, "\nDigite qualquer número para fechar\n")
+      leia(rs)
+      limpa()
+      pare
+      se(op==2)
+      escreva("Resultado: ", n1-n2, "\nDigite qualquer número para fechar\n")
+      leia(rs)
+      limpa()
+      pare
+      se(op==3)
+      escreva("Resultado: ", n1*n2, "\nDigite qualquer número para fechar\n")
+      leia(rs)
+      limpa()
+      pare
+      se(op==4)
+      escreva("Resultado: ", n1/n2, "\nDigite qualquer número para fechar\n")
+      leia(rs)
+      limpa()
+      pare
+      se(op<=0)
+      escreva("Erro: Opção invalida. Digite qualquer número para fechar\n")
+      leia(rs)
+      limpa()
+      pare
+      se(op>=5)
+      escreva("Erro: Opção invalida. Digite qualquer número para fechar\n")
+      leia(rs)
+      limpa()
+      pare
+    }
+  }
+}
+// Eu tentei fazer um laço onde depois de ele entregar o resultado reiniciasse desde o começo do código e havia conseguido, mas toda hora que dava o resultado ele passava por todos os if antes de voltar pro começo, então decidi só finalizar o programa quando dê o resultado.
