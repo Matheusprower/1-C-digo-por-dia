@@ -1,0 +1,51 @@
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int op, v, escolha = 0, numero,  rst = 0, l = 0;
+        ArrayList<Integer> num = new ArrayList<>();
+        System.out.print("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+        while (rst == 0) {
+            v = 0;
+            System.out.println("Digite o valor referente a sua opção:\n 1 - Escrever valor\n 2 - Checar valor\n 3 - Alterar valor\n 4 - Fechar");
+            op = sc.nextInt();
+            System.out.print("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+            switch (op) {
+                case 1:
+                    System.out.println("Digite um valor para armazenar");
+                    numero = sc.nextInt();
+                    num.add(numero);
+                    l++;
+                    System.out.println("O valor digitado foi: " + num.get(l - 1) + "\ne seu ID é: " + l + "\n");
+                    break;
+
+                case 2:
+                    System.out.println("Digite o ID do valor que quer acessar");
+                    v = sc.nextInt();
+                    System.out.println("O ID acessado foi: " + v + "\ne seu valor é: " + num.get(v - 1) + "\n");
+                    break;
+
+                case 4:
+                    rst = 1;
+                    break;
+
+                case 3:
+                    System.out.println("Digite o ID que quer alterar");
+                    v = sc.nextInt();
+                    System.out.println("O valor do ID " + v + " é " + num.get(v - 1) + "\nCerteza que deseja alterar? Uma vez modificado não será mais possível ter acesso ao valor antigo.\nDigite 1 para SIM e 0 para NÃO");
+                    escolha = sc.nextInt();
+                    if (escolha == 0) {
+                        break;
+                    } else if (escolha == 1) {
+                        System.out.println("Digite o valor que substituirá " + num.get(v - 1) + " de ID " + v);
+                        numero = sc.nextInt();
+                        num.set(v - 1, numero);
+                        System.out.println("O valor do ID " + v + " agora é " + num.get(v - 1) + "\n");
+                    }
+            }
+        }
+        sc.close();
+    }
+}
