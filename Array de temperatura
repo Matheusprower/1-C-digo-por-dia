@@ -1,0 +1,25 @@
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        double[] temperatura = new double[13];
+
+        for (int i = 0; i < 12; i++) {
+            System.out.println("Digite a temperatura " + (i + 1) + " (de 4 a 10 graus): ");
+            temperatura[i] = sc.nextDouble();
+            while (!(temperatura[i] >= 4 && temperatura[i] <= 10)) {
+                System.out.println("Digite o valor correto da temperatura " + (i + 1));
+                temperatura[i] = sc.nextDouble();
+            }
+            System.out.println("O valor da temperatura " + (i + 1) + " é: " + temperatura[i]);
+        }
+
+        double soma = Arrays.stream(temperatura).sum();
+        double media = soma / 12;
+
+        System.out.println("A média total de temperaturas do dia é: " + media + "°");
+        sc.close();
+    }
+}
