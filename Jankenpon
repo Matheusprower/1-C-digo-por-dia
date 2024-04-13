@@ -1,0 +1,41 @@
+import java.util.Scanner;
+import java.util.Random;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        Random rd = new Random();
+        int escolha = 0, robo = 0;
+        String[][] jogo = {
+            {"Empate", "Máquina vence", "Jogador vence"},
+            {"Jogador vence", "Empate", "Máquina vence"},
+            {"Máquina vence", "Jogador vence", "Empate"}
+        };
+        String [] dados = {"Pedra", "Papel", "Tesoura"};
+        System.out.println("Escolha um número de 1 a 3, sendo: ");
+        System.out.println(" Pedra");
+        System.out.println(" Papel");
+        System.out.println(" Tesoura");
+        for (int i = 0; i < 1; i++)
+        try {
+            escolha = sc.nextInt();
+            if (escolha < 1 || escolha > 3) {
+                System.out.println("Digite um número válido entre 1 e 3");
+                i--;
+            }
+        } catch(Exception e) {
+            System.out.println("Digite um número válido entre 1 e 3");
+            sc.next();
+            i--;
+        }
+        escolha--;
+        while (robo < 1 || robo > 3) {
+            robo = rd.nextInt(4);
+        }
+        robo--;
+        System.out.println("O Jogador escolheu: " + dados[escolha]);
+        System.out.println("A Máquina escolheu: " + dados[robo]);
+        System.out.println("O resultado foi: " + jogo[escolha][robo]);
+        sc.close();
+    }
+}
