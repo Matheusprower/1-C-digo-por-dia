@@ -1,0 +1,82 @@
+import java.util.Scanner;
+
+public class Main
+{
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String nome = "a";
+        double altura = 0;
+        int idade = 0;
+        System.out.println("Escreva o nome da pessoa");
+        for (int i = 0; i < 1; i++) {
+            try {
+                nome = sc.nextLine();
+            } catch(Exception e) {
+                System.out.println("Escreva um nome válido");
+                sc.next();
+                i--;
+            }
+        }
+        System.out.println("Escreva o valor da altura em metros");
+        for (int i = 0; i < 1; i++) {
+            try {
+                altura = sc.nextDouble();
+            } catch(Exception e) {
+                System.out.println("Escreva um valor válido para altura");
+                sc.next();
+                i--;
+            }
+        }
+        System.out.println("Escreva a idade da pessoa");
+        for (int i = 0; i < 1; i++) {
+            try {
+                idade = sc.nextInt();
+            } catch(Exception e) {
+                System.out.println("Digite uma idade válida");
+                sc.next();
+                i--;
+            }
+        }
+        Pessoa.pegarDados(nome, altura, idade);
+    }
+}
+
+public class Pessoa
+{
+    private String nome;
+    private double altura;
+    private int idade;
+    
+    public Pessoa(String nome, double altura, int idade) {
+        this.nome = nome;
+        this.altura = altura;
+        this.idade = idade;
+    }
+    public String getNome() {
+        return nome;
+    }
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+    public double getAltura() {
+        return altura;
+    }
+    public void setAltura(double altura) {
+        this.altura = altura;
+    }
+    public int getIdade() {
+        return idade;
+    }
+    public void setIdade(int idade) {
+        this.idade = idade;
+    }
+    public static void pegarDados(String nome, double altura, int idade) {
+        Pessoa pessoa = new Pessoa(nome, altura, idade);
+        System.out.println("Nome: " + pessoa.getNome());
+        System.out.println("Altura: " + pessoa.getAltura() + " m");
+        System.out.println("Idade: " + pessoa.getIdade());
+        System.out.println(pessoa.getNome() + " Anda");
+        System.out.println(pessoa.getNome() + " Dorme");
+        System.out.println(pessoa.getNome() + " Respira");
+    }
+}
