@@ -1,0 +1,69 @@
+// A classe onde chama todas as outras classes, passa os dados principais da nota do aluno entre a classe Calc e a Val e loopa o código.
+import java.util.Scanner;
+
+public class Main
+{
+	public static void main(String[] args) {
+	    Scanner sc = new Scanner(System.in);
+	    String rst = "";
+	    boolean reset = true;
+	    while (reset) {
+	        Calc calc = new Calc();
+	        Val val = new Val();
+	        calc.pedindo();
+	        double[] n = calc.getN();
+          val.media(n);
+	        System.out.println("Pressione ENTER para reiniciar ou digite qualquer coisa para fechar o programa.");
+	        rst = sc.nextLine();
+	        if (rst.isEmpty()) {
+	            
+	        } else {
+	            reset = false;
+	        }
+	    }
+	}
+}
+
+// A classe responsável por pegar o valor das notas do aluno e voltar para a classe Main.
+import java.util.Scanner;
+
+public class Calc
+{
+    private static double[] n = new double[4];
+    private static String[] local = {"Primeira", "Segunda", "Terceira"};
+    
+	public static void pedindo() {
+	    Scanner sc = new Scanner(System.in);
+	    for ( int i = 0; i < 3; i++) {
+	        System.out.println("Escreva a " + local[i] + " nota do aluno");
+	        try {
+	            n[i] = sc.nextDouble();
+	        } catch(Exception e) {
+	            System.out.println("Escreva um valor válido");
+	            sc.next();
+	            i--;
+	        }
+	    }
+	}
+	public double[] getN() {
+	    return n;
+	}
+}
+
+// A classe responsável por receber o valor das notas do aluno pela classe Main, calcular o valor da média delas e exibir o resultado do aluno.
+public class Val {
+    public void media(double[] n) {
+        n[3] = (n[0] + n[1] + n[2]) / 3;
+        String[] resultado = {"reprovado", "em recuperação", "aprovado"};
+        int i = 0;
+        System.out.println("A média do aluno foi: " + n[3]);
+        if (n[3] >= 0 && n[3] <= 39) {
+            i = 0;
+        } else if (n[3] >= 40 && n[3] <= 69) {
+            i = 1;
+        } else {
+            i = 2;
+        }
+        System.out.println("O aluno está " + resultado[i]);
+    }
+}
